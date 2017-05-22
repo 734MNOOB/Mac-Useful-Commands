@@ -1,37 +1,17 @@
-## Welcome to GitHub Pages
+# Mac Usefule Commands
 
-You can use the [editor on GitHub](https://github.com/bnchndlr/Mac-Useful-Commands/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+A collection of little code snippets or tutorials to get the most out of your mac or out of a certain situation.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## How to enable the root user on your Mac
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/bnchndlr/Mac-Useful-Commands/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+1. Choose Apple menu () > System Preferences, then click Users & Groups (or Accounts).
+2. Click <img src="https://support.apple.com/library/content/dam/edam/applecare/images/en_US/il/elcapitan-lock-inline.png" width="14">, then enter an administrator name and password.
+3. Click Login Options.
+4. Click Join (or Edit).
+5. Click Open Directory Utility.
+6. Click <img src="https://support.apple.com/library/content/dam/edam/applecare/images/en_US/il/elcapitan-lock-inline.png" width="14"> in the Directory Utility window, then enter an administrator name and password.
+7. From the menu bar in Directory Utility:
+	- Choose Edit > Enable Root User, then enter the password that you want to use for the root user.
+	- Or choose Edit > Disable Root User.
