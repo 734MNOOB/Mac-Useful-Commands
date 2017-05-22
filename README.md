@@ -15,3 +15,6 @@ A collection of little code snippets or tutorials to get the most out of your ma
 7. From the menu bar in Directory Utility:
 	- Choose Edit > Enable Root User, then enter the password that you want to use for the root user.
 	- Or choose Edit > Disable Root User.
+
+## Flush Cache & Clear DNS
+dscacheutil -flushcache; killall -HUP mDNSResponder; echo cache flushed
