@@ -17,4 +17,5 @@ A collection of little code snippets or tutorials to get the most out of your ma
 	- Or choose Edit > Disable Root User.
 
 ## Flush Cache & Clear DNS
-dscacheutil -flushcache; killall -HUP mDNSResponder; echo cache flushed
+sudo dscacheutil -flushcache
+sudo killall -HUP mDNSResponder
