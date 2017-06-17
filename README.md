@@ -17,5 +17,8 @@ A collection of little code snippets or tutorials to get the most out of your ma
 	- Or choose Edit > Disable Root User.
 
 ## Flush Cache & Clear DNS
-sudo dscacheutil -flushcache
-sudo killall -HUP mDNSResponder
+* `sudo dscacheutil -flushcache`
+* `sudo killall -HUP mDNSResponder`
+
+## Reset Audio
+* `sudo killall coreaudiod`
