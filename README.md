@@ -50,3 +50,6 @@ $ brew services list
 ```
 $ brew services run|start|stop|restart --all
 ```
+
+## Disable Gatekeeper
+`sudo spctl --master-disable`
