@@ -52,4 +52,7 @@ $ brew services run|start|stop|restart --all
 ```
 
 ## Disable Gatekeeper
-`sudo spctl --master-disable`
+
+```
+sudo spctl --master-disable
+```
