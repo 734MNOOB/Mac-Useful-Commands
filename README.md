@@ -23,8 +23,10 @@ A collection of little code snippets or tutorials to get the most out of your ma
 ## Reset Audio
 * `sudo killall coreaudiod`
 
+## Disable Gatekeeper
+* `sudo spctl --master-enable`
 
-Homebrew Services
+## Homebrew Services
 =================
 
 Integrates Homebrew formulae with macOS's `launchctl` manager.
