@@ -24,10 +24,11 @@ A collection of little code snippets or tutorials to get the most out of your ma
 * `sudo killall coreaudiod`
 
 ## Disable Gatekeeper
-* `sudo spctl --master-enable`
+`sudo spctl --master-disable`
+
+---
 
 ## Homebrew Services
-=================
 
 Integrates Homebrew formulae with macOS's `launchctl` manager.
 
@@ -36,25 +37,10 @@ current user upon login.  When `brew services` is run as the root user, plists
 are installed to `/Library/LaunchDaemons/`, and run as the root user on boot.
 
 ## Installation ##
-
-```
-brew tap homebrew/services
-```
+`brew tap homebrew/services`
 
 ### List all services managed by `brew services` ###
-
-```
-$ brew services list
-```
+`$ brew services list`
 
 ### Run/start/stop/restart all available services ###
-
-```
-$ brew services run|start|stop|restart --all
-```
-
-## Disable Gatekeeper
-
-```
-sudo spctl --master-disable
-```
+`$ brew services run|start|stop|restart --all`
