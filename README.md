@@ -25,6 +25,7 @@ A collection of little code snippets or tutorials to get the most out of your ma
 
 ## Disable Gatekeeper
 `sudo spctl --master-disable`
+`sudo defaults write /Library/Preferences/com.apple.security GKAutoRearm -bool false`
 
 ---
 
