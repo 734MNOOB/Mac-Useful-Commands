@@ -27,6 +27,11 @@ A collection of little code snippets or tutorials to get the most out of your ma
 * `sudo spctl --master-disable`
 * `sudo defaults write /Library/Preferences/com.apple.security GKAutoRearm -bool NO`
 
+## Show/Hide Hidden Files
+* `defaults write com.apple.finder AppleShowAllFiles NO`
+* `defaults write com.apple.finder AppleShowAllFiles YES`
+* `killall Finder`
+
 ---
 
 ## Homebrew Services
