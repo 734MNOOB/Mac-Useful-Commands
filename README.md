@@ -55,7 +55,7 @@ are installed to `/Library/LaunchDaemons/`, and run as the root user on boot.
 
 # Toggle MacOS X Notification Center on or off
 
-This gist is to remind me (and anyone else who it helps) how to quickly disable and re-enable Notification Center.
+[This gist](https://gist.github.com/mikermcneil/10005651) is to remind me (and anyone else who it helps) how to quickly disable and re-enable Notification Center.
 
 ## Set Up Bash Aliases
 
@@ -80,8 +80,6 @@ disableNotificationCenter
 ```sh
 enableNotificationCenter
 ```
-
-
 
 
 ## How it works / background
