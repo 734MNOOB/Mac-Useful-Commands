@@ -50,3 +50,64 @@ are installed to `/Library/LaunchDaemons/`, and run as the root user on boot.
 
 ### Run/start/stop/restart all available services ###
 `$ brew services run|start|stop|restart --all`
+
+---
+
+# Toggle MacOS X Notification Center on or off
+
+This gist is to remind me (and anyone else who it helps) how to quickly disable and re-enable Notification Center.
+
+## Set Up Bash Aliases
+
+#### Installation
+
+1. Open your terminal (<⌘ + ␣ (spacebar)>, then type "terminal", then press <↩ (enter)>).
+
+2. Paste and run the following command:
+
+```sh
+echo >> ~/.profile && echo >> ~/.profile && echo '# Disable/enable notification center' >> ~/.profile && echo 'alias disableNotificationCenter="launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist && killall NotificationCenter"' >> ~/.profile && echo 'alias enableNotificationCenter="launchctl load -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist && open /System/Library/CoreServices/NotificationCenter.app/"' >> ~/.profile && source ~/.profile
+```
+
+#### Usage
+
+**To disable notification center:**
+```sh
+disableNotificationCenter
+```
+
+**To re-enable notification center:**
+```sh
+enableNotificationCenter
+```
+
+
+
+
+## How it works / background
+
+
+#### Goal
+Disable MacOS X's Notification Center entirely.  But make it easy to turn it back on and disable again as needed.
+
+#### Reasoning
+I'm tired of seeing notifications that I can't dismiss, and there's no easy way to do this selectively (e.g. MacOS notifications always come through)
+
+#### How this disables __Notification Center__
+
+```sh
+launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist
+killall NotificationCenter
+
+```
+
+#### How this re-enables __Notification Center__
+
+```sh 
+launchctl load -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist
+open /System/Library/CoreServices/NotificationCenter.app/
+
+```
+
+## Bibliography
+This approach is a command-line-only version of the solution proposed in [a great article](http://osxdaily.com/2012/08/06/disable-notification-center-remove-menu-bar-icon-os-x/) on osxdaily.com.
