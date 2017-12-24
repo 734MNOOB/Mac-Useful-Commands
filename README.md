@@ -31,6 +31,25 @@ A collection of little code snippets or tutorials to get the most out of your ma
 * `killall Finder`
 
 ---
+## Disable macOS user interface Animations
+
+1. Disable animations when opening and closing windows.
+2. Disable animations when opening a Quick Look window.
+3. Accelerated playback when adjusting the window size (Cocoa applications).
+4. Disable animation when opening the Info window in Finder (cmd⌘ + i).
+5. Disable animations when you open an application from the Dock.
+6. Make all animations faster that are used by Mission Control.
+7. Disable the delay when you hide the Dock.
+
+```defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
+defaults write -g QLPanelAnimationDuration -float 0
+defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
+defaults write com.apple.finder DisableAllAnimations -bool true
+defaults write com.apple.dock launchanim -bool false
+defaults write com.apple.dock expose-animation-duration -float 0.1
+defaults write com.apple.Dock autohide-delay -float 0```
+
+---
 
 ## Homebrew Services
 
