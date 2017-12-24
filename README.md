@@ -41,13 +41,15 @@ A collection of little code snippets or tutorials to get the most out of your ma
 6. Make all animations faster that are used by Mission Control.
 7. Disable the delay when you hide the Dock.
 
-```defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
+```
+defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
 defaults write -g QLPanelAnimationDuration -float 0
 defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
 defaults write com.apple.finder DisableAllAnimations -bool true
 defaults write com.apple.dock launchanim -bool false
 defaults write com.apple.dock expose-animation-duration -float 0.1
-defaults write com.apple.Dock autohide-delay -float 0```
+defaults write com.apple.Dock autohide-delay -float 0
+```
 
 ---
 
