@@ -53,6 +53,19 @@ defaults write com.apple.Dock autohide-delay -float 0
 
 ---
 
+## List All Hardware Ports
+
+`networksetup -listallhardwareports`
+
+### Disable Internet/Networking
+
+```
+sudo ifconfig en0 down
+sudo ifconfig en0 up
+```
+
+---
+
 ## Homebrew Services
 
 Integrates Homebrew formulae with macOS's `launchctl` manager.
