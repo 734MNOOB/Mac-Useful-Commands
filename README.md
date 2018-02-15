@@ -66,6 +66,12 @@ sudo ifconfig en0 up
 
 ---
 
+## Compare Files
+
+`opendiff index1.html index2.html`
+
+---
+
 ## Homebrew Services
 
 Integrates Homebrew formulae with macOS's `launchctl` manager.
