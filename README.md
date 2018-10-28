@@ -33,6 +33,11 @@ A collection of little code snippets or tutorials to get the most out of your ma
 ## Remove .DS_Store files recursively from terminal
 `find . -name ‘*.DS_Store’ -type f -delete`
 
+## Fix NPM
+`sudo chown -R $(whoami) /usr/local/lib/node_modules`
+`sudo chown -R $(whoami) /usr/local/bin`
+`sudo chown -R $(whoami) /usr/local/share`
+
 
 ---
 ## Disable macOS user interface Animations
