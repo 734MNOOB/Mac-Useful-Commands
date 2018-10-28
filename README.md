@@ -30,6 +30,10 @@ A collection of little code snippets or tutorials to get the most out of your ma
 * `defaults write com.apple.finder AppleShowAllFiles YES`
 * `killall Finder`
 
+## Remove .DS_Store files recursively from terminal
+`find . -name ‘*.DS_Store’ -type f -delete`
+
+
 ---
 ## Disable macOS user interface Animations
 
