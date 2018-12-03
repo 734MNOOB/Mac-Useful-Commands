@@ -61,6 +61,24 @@ defaults write com.apple.Dock autohide-delay -float 0
 ```
 
 ---
+## Managing Mac Fonts
+
+The power of three You can find system fonts in three main locations:
+* `**/System/Library/Fonts/**`
+
+* `holds fonts that are available for all Mac OS user accounts; Mac OS needs many of these fonts to operate normally`
+
+* `**/Library/Fonts/**`
+
+* `holds fonts that are available for all Mac OS user accounts, including fonts installed by applications`
+
+* `**~/Library/Fonts/**`
+
+* `holds fonts that are available only for the current Mac OS user; each user account has it own Fonts folder For a more detailed explanation of where Mac OS keeps its fonts, see Mac OS X: Font locations and their purposes.`
+
+* [link](https://support.apple.com/en-us/HT201722)
+
+---
 
 ## List All Hardware Ports
 
@@ -127,7 +145,7 @@ disableNotificationCenter
 ```sh
 enableNotificationCenter
 ```
-
+---
 
 ## How it works / background
 
