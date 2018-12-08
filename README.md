@@ -14,16 +14,21 @@ A collection of little code snippets or tutorials to get the most out of your ma
    - Choose Edit > Enable Root User, then enter the password that you want to use for the root user.
    - Or choose Edit > Disable Root User.
 
-## Flush Cache & Clear DNS
+With pictures: https://coolestguidesontheplanet.com/enable-root-user-macos-sierra
+
+---
+
+## Random Stuff
+
+### Flush Cache & Clear DNS
 
 - `sudo killall -HUP mDNSResponder`
-- `sudo dscacheutil -flushcache`
 
-## Reset Audio
+### Reset Audio
 
 - `sudo killall coreaudiod`
 
-## Disable Gatekeeper
+### Disable Gatekeeper
 
 - `sudo spctl --master-disable`
 - `sudo defaults write /Library/Preferences/com.apple.security GKAutoRearm -bool NO`
@@ -34,19 +39,13 @@ A collection of little code snippets or tutorials to get the most out of your ma
 - `defaults write com.apple.finder AppleShowAllFiles YES`
 - `killall Finder`
 
-## Remove .DS_Store files recursively from terminal
+### Remove .DS_Store files recursively from terminal
 
 `find . -name ‘*.DS_Store’ -type f -delete`
 
-## Fix NPM
-
-`sudo chown -R $(whoami) /usr/local/lib/node_modules`
-`sudo chown -R $(whoami) /usr/local/bin`
-`sudo chown -R $(whoami) /usr/local/share`
-
 ---
 
-## Disable macOS user interface Animations
+### Disable macOS user interface Animations
 
 1. Disable animations when opening and closing windows.
 2. Disable animations when opening a Quick Look window.
@@ -66,29 +65,7 @@ defaults write com.apple.dock expose-animation-duration -float 0.1
 defaults write com.apple.Dock autohide-delay -float 0
 ```
 
----
-
-## Managing Mac Fonts
-
-The power of three You can find system fonts in three main locations:
-
-**`/System/Library/Fonts/`**
-
-`holds fonts that are available for all Mac OS user accounts; Mac OS needs many of these fonts to operate normally`
-
-**`/Library/Fonts/`**
-
-`holds fonts that are available for all Mac OS user accounts, including fonts installed by applications`
-
-**`~/Library/Fonts/`**
-
-`holds fonts that are available only for the current Mac OS user; each user account has it own Fonts folder For a more detailed explanation of where Mac OS keeps its fonts, see Mac OS X: Font locations and their purposes.`
-
-[link](https://support.apple.com/en-us/HT201722)
-
----
-
-## List All Hardware Ports
+### List All Hardware Ports
 
 `networksetup -listallhardwareports`
 
@@ -99,11 +76,29 @@ sudo ifconfig en0 down
 sudo ifconfig en0 up
 ```
 
----
-
-## Compare Files
+### Compare Files
 
 `opendiff index1.html index2.html`
+
+---
+
+## Managing Mac Fonts
+
+The power of three You can find system fonts in three main locations:
+
+**`/System/Library/Fonts/`**
+
+Holds fonts that are available for all Mac OS user accounts; Mac OS needs many of these fonts to operate normally.
+
+**`/Library/Fonts/`**
+
+Holds fonts that are available for all Mac OS user accounts, including fonts installed by applications.
+
+**`~/Library/Fonts/`**
+
+Holds fonts that are available only for the current Mac OS user; each user account has it own Fonts folder For a more detailed explanation of where Mac OS keeps its fonts, see Mac OS X: Font locations and their purposes.
+
+[Read More](https://support.apple.com/en-us/HT201722)
 
 ---
 
@@ -133,8 +128,6 @@ are installed to `/Library/LaunchDaemons/`, and run as the root user on boot.
 
 [This gist](https://gist.github.com/mikermcneil/10005651) is to remind me (and anyone else who it helps) how to quickly disable and re-enable Notification Center.
 
-## Set Up Bash Aliases
-
 #### Installation
 
 1. Open your terminal (<⌘ + ␣ (spacebar)>, then type "terminal", then press <↩ (enter)>).
@@ -158,8 +151,6 @@ disableNotificationCenter
 ```sh
 enableNotificationCenter
 ```
-
----
 
 ## How it works / background
 
@@ -187,28 +178,51 @@ open /System/Library/CoreServices/NotificationCenter.app/
 
 ```
 
-#### Setting up a Brand New Mac for Development (not complete)
+---
+
+## Setting up a Brand New Mac for Development (not complete)
 
 #### Show Library folder
 
-chflags nohidden ~/Library
+`chflags nohidden ~/Library`
 
 #### Mac Store CLI
 
+```
 brew install mas
 mas signin email@email.com
-
-#### Disable unidentified developer warnings
-
-sudo spctl --master-disable
-
-#### Config - ~/.bash_profile
-
-# Update and clean homebrow in one command
-
-alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
+```
 
 ---
+
+### System Integrity Protection in macOS
+
+[What is SIP – System Integrity Protection in macOS](https://coolestguidesontheplanet.com/what-is-sip-in-osx-10-11-el-capitan)
+
+Reboot your Mac into Recovery Mode by rebooting and holding down ‘command’ + ‘r’.
+
+Launch a Terminal session and enter `csrutil disable`
+
+then once logged back in, re-open terminal and enter: `sudo spctl --master-disable`
+
+---
+
+### Update and clean homebrew in one command
+
+```
+cd ~
+sudo nano .bash_profile
+```
+
+Add the next line:
+
+`alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'`
+
+Then `CTRL+O` to save, press enter, `CTRL+X` to close
+
+---
+
+## NPM
 
 #### Manually change npm’s default directory
 
@@ -235,6 +249,14 @@ npm install -g prettier jshint jsonlint eslint tslint typescript csslint ternjs 
 It is cleaner not to use sudo when installing npm packages there are a couple of options here on how this is done.
 `sudo chown -R $(whoami) $(npm config get prefix)/{lib/node_modules,bin,share}`
 
+If all else fails:
+
+## Fix NPM
+
+`sudo chown -R $(whoami) /usr/local/lib/node_modules`
+`sudo chown -R $(whoami) /usr/local/bin`
+`sudo chown -R $(whoami) /usr/local/share`
+
 ---
 
 ## Generate SSH Private and Public Keys in macOS
@@ -259,6 +281,6 @@ It is cleaner not to use sudo when installing npm packages there are a couple of
 
 `cd .ssh ; ls`
 
-## Bibliography
+## References
 
-This approach is a command-line-only version of the solution proposed in [a great article](http://osxdaily.com/2012/08/06/disable-notification-center-remove-menu-bar-icon-os-x/) on osxdaily.com.
+[OSX Daily](https://osxdaily.com/2012/08/06/disable-notification-center-remove-menu-bar-icon-os-x/) | [Coolest Guides on the Planet](https:/coolestguidesontheplanet.com)
