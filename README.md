@@ -11,35 +11,41 @@ A collection of little code snippets or tutorials to get the most out of your ma
 5. Click Open Directory Utility.
 6. Click <img src="https://support.apple.com/library/content/dam/edam/applecare/images/en_US/il/elcapitan-lock-inline.png" width="14"> in the Directory Utility window, then enter an administrator name and password.
 7. From the menu bar in Directory Utility:
-	- Choose Edit > Enable Root User, then enter the password that you want to use for the root user.
-	- Or choose Edit > Disable Root User.
+   - Choose Edit > Enable Root User, then enter the password that you want to use for the root user.
+   - Or choose Edit > Disable Root User.
 
 ## Flush Cache & Clear DNS
-* `sudo killall -HUP mDNSResponder`
-* `sudo dscacheutil -flushcache`
+
+- `sudo killall -HUP mDNSResponder`
+- `sudo dscacheutil -flushcache`
 
 ## Reset Audio
-* `sudo killall coreaudiod`
+
+- `sudo killall coreaudiod`
 
 ## Disable Gatekeeper
-* `sudo spctl --master-disable`
-* `sudo defaults write /Library/Preferences/com.apple.security GKAutoRearm -bool NO`
+
+- `sudo spctl --master-disable`
+- `sudo defaults write /Library/Preferences/com.apple.security GKAutoRearm -bool NO`
 
 ## Show/Hide Hidden Files
-* `defaults write com.apple.finder AppleShowAllFiles NO`
-* `defaults write com.apple.finder AppleShowAllFiles YES`
-* `killall Finder`
+
+- `defaults write com.apple.finder AppleShowAllFiles NO`
+- `defaults write com.apple.finder AppleShowAllFiles YES`
+- `killall Finder`
 
 ## Remove .DS_Store files recursively from terminal
+
 `find . -name ‘*.DS_Store’ -type f -delete`
 
 ## Fix NPM
+
 `sudo chown -R $(whoami) /usr/local/lib/node_modules`
 `sudo chown -R $(whoami) /usr/local/bin`
 `sudo chown -R $(whoami) /usr/local/share`
 
-
 ---
+
 ## Disable macOS user interface Animations
 
 1. Disable animations when opening and closing windows.
@@ -61,6 +67,7 @@ defaults write com.apple.Dock autohide-delay -float 0
 ```
 
 ---
+
 ## Managing Mac Fonts
 
 The power of three You can find system fonts in three main locations:
@@ -105,16 +112,19 @@ sudo ifconfig en0 up
 Integrates Homebrew formulae with macOS's `launchctl` manager.
 
 By default, plists are installed to `~/Library/LaunchAgents/` and run as the
-current user upon login.  When `brew services` is run as the root user, plists
+current user upon login. When `brew services` is run as the root user, plists
 are installed to `/Library/LaunchDaemons/`, and run as the root user on boot.
 
-## Installation ##
+## Installation
+
 `brew tap homebrew/services`
 
-### List all services managed by `brew services` ###
+### List all services managed by `brew services`
+
 `$ brew services list`
 
-### Run/start/stop/restart all available services ###
+### Run/start/stop/restart all available services
+
 `$ brew services run|start|stop|restart --all`
 
 ---
@@ -138,25 +148,30 @@ echo >> ~/.profile && echo >> ~/.profile && echo '# Disable/enable notification 
 #### Usage
 
 **To disable notification center:**
+
 ```sh
 disableNotificationCenter
 ```
 
 **To re-enable notification center:**
+
 ```sh
 enableNotificationCenter
 ```
+
 ---
 
 ## How it works / background
 
 #### Goal
-Disable MacOS X's Notification Center entirely.  But make it easy to turn it back on and disable again as needed.
+
+Disable MacOS X's Notification Center entirely. But make it easy to turn it back on and disable again as needed.
 
 #### Reasoning
+
 I'm tired of seeing notifications that I can't dismiss, and there's no easy way to do this selectively (e.g. MacOS notifications always come through)
 
-#### How this disables __Notification Center__
+#### How this disables **Notification Center**
 
 ```sh
 launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist
@@ -164,13 +179,86 @@ killall NotificationCenter
 
 ```
 
-#### How this re-enables __Notification Center__
+#### How this re-enables **Notification Center**
 
-```sh 
+```sh
 launchctl load -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist
 open /System/Library/CoreServices/NotificationCenter.app/
 
 ```
 
+#### Setting up a Brand New Mac for Development (not complete)
+
+#### Show Library folder
+
+chflags nohidden ~/Library
+
+#### Mac Store CLI
+
+brew install mas
+mas signin email@email.com
+
+#### Disable unidentified developer warnings
+
+sudo spctl --master-disable
+
+#### Config - ~/.bash_profile
+
+# Update and clean homebrow in one command
+
+alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
+
+---
+
+#### Manually change npm’s default directory
+
+`mkdir ~/.npm-global`
+`npm config set prefix '~/.npm-global'`
+`export PATH=~/.npm-global/bin:$PATH`
+`source ~/.bash_profile`
+
+To test your new configuration, install a package without using sudo:
+`npm install -g jshint`
+
+#### Install some NPM packages
+
+npm install -g prettier jshint jsonlint eslint tslint typescript csslint ternjs bower
+
+## Git
+
+`export PATH="/usr/local/bin:/usr/bin/git:/usr/bin:/usr/local/sbin:$PATH"`
+
+---
+
+## Node
+
+It is cleaner not to use sudo when installing npm packages there are a couple of options here on how this is done.
+`sudo chown -R $(whoami) $(npm config get prefix)/{lib/node_modules,bin,share}`
+
+---
+
+## Generate SSH Private and Public Keys in macOS
+
+#### Create a .ssh Directory
+
+`cd ~/`
+
+#### Create a SSH directory name .ssh and move into it
+
+`mkdir .ssh ; cd .ssh`
+
+#### Make sure that the file permissions are set to read/write/execute only for the user
+
+`chmod go-rwx .ssh`
+
+#### Create your private and public key, the blank quotes at the end of the command gives the private key no password, so allowing for passwordless logins!
+
+`ssh-keygen -b 1024 -t rsa -f id_rsa -P ""`
+
+#### Change into the .ssh directory and list the contents of that .ssh directory
+
+`cd .ssh ; ls`
+
 ## Bibliography
+
 This approach is a command-line-only version of the solution proposed in [a great article](http://osxdaily.com/2012/08/06/disable-notification-center-remove-menu-bar-icon-os-x/) on osxdaily.com.
