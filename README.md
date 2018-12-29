@@ -67,6 +67,7 @@ defaults write com.apple.Dock autohide-delay -float 0
 
 ### Disable opening and closing window animations
 `defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false`
+`killall SystemUIServer`
 
 ### Expand save panel by default
 `defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true`
