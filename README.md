@@ -65,6 +65,71 @@ defaults write com.apple.dock expose-animation-duration -float 0.1
 defaults write com.apple.Dock autohide-delay -float 0
 ```
 
+# Disable opening and closing window animations
+`defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false`
+
+# Expand save panel by default
+`defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true`
+
+# Expand print panel by default
+`defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true`
+
+# Save to disk (not to iCloud) by default
+`defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool true`
+
+# Automatically quit printer app once the print jobs complete
+`defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true`
+
+# Disable the “Are you sure you want to open this application?” dialog
+`defaults write com.apple.LaunchServices LSQuarantine -bool false`
+
+# Disable Resume system-wide
+`defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false`
+
+# Check for software updates daily, not just once per week
+`defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1`
+
+# Increase sound quality for Bluetooth headphones/headsets
+`defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40`
+
+# Enable subpixel font rendering on non-Apple LCDs
+# https://www.unixinfo.nl/osx-change-font-smoothing
+`defaults write NSGlobalDomain AppleFontSmoothing -int 2`
+
+# Finder: disable window animations and Get Info animations
+```
+defaults delete com.apple.dock expose-animation-duration
+defaults write com.apple.dock springboard-show-duration -int 0
+defaults write com.apple.dock springboard-hide-duration -int 0
+killall Dock
+defaults write com.apple.finder DisableAllAnimations -boolean true
+killall Finder
+defaults write -g NSInitialToolTipDelay -integer 100
+defaults write -g NSWindowResizeTime 0.1
+```
+
+# Check spelling as you type 
+`defaults write -g CheckSpellingWhileTyping -boolean false`
+
+# Enable continuous spell checking everywhere (don't know what it means)
+`defaults write -g WebContinuousSpellCheckingEnabled -boolean false`
+
+# Disable smart quotes:
+`defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false`
+
+# Disable smart dashes:
+`defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false`
+
+# Disable smart quotes for TextEdit:
+`defaults write com.apple.TextEdit SmartQuotes -bool false`
+
+# Disable smart dashes for TextEdit:
+`defaults write com.apple.TextEdit SmartDashes -bool false`
+
+
+
+---
+
 ### List All Hardware Ports
 
 `networksetup -listallhardwareports`
