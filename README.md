@@ -97,6 +97,16 @@ defaults write com.apple.Dock autohide-delay -float 0
 ### https://www.unixinfo.nl/osx-change-font-smoothing
 `defaults write NSGlobalDomain AppleFontSmoothing -int 2`
 
+## Maybe better mojave font rendering and on a per-app basis
+```
+defaults write -g CGFontRenderingFontSmoothingDisabled -bool NO
+
+defaults write com.microsoft.VSCode CGFontRenderingFontSmoothingDisabled 0
+defaults write com.microsoft.VSCode.helper CGFontRenderingFontSmoothingDisabled 0
+defaults write com.microsoft.VSCode.helper.EH CGFontRenderingFontSmoothingDisabled 0
+defaults write com.microsoft.VSCode.helper.NP CGFontRenderingFontSmoothingDisabled 0
+```
+
 ### Finder: disable window animations and Get Info animations
 ```
 defaults delete com.apple.dock expose-animation-duration
@@ -126,8 +136,6 @@ defaults write -g NSWindowResizeTime 0.1
 
 ### Disable smart dashes for TextEdit:
 `defaults write com.apple.TextEdit SmartDashes -bool false`
-
-
 
 ---
 
