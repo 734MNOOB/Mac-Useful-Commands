@@ -137,6 +137,21 @@ defaults write -g NSWindowResizeTime 0.1
 ### Disable smart dashes for TextEdit:
 `defaults write com.apple.TextEdit SmartDashes -bool false`
 
+### Disable the “Are you sure you want to open this application?” dialog
+`defaults write com.apple.LaunchServices LSQuarantine -bool false`
+
+### Disable Resume system-wide
+`defaults write com.apple.systempreferences NSQuitAlwaysKeepsWindows -bool false`
+
+### Disable the crash reporter
+`defaults write com.apple.CrashReporter DialogType -string "none"`
+
+### Enable spring loading for directories
+`defaults write NSGlobalDomain com.apple.springing.enabled -bool true`
+
+### Remove the spring loading delay for directories
+`defaults write NSGlobalDomain com.apple.springing.delay -float 0`
+
 ---
 
 ### List All Hardware Ports
